@@ -1,9 +1,13 @@
 import React from 'react'
+import Hero from '../components/Hero'
 
 function Home() {
   return (
-    <div>Home</div>
+    <>
+      <Hero />
+      {/* Add more sections below — Skills, Featured Projects, etc. */}
+    </>
   )
 }
 
-export default Home
+export default Home
