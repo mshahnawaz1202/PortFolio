@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import { FiArrowRight, FiDownload } from 'react-icons/fi'
+import { FiArrowRight } from 'react-icons/fi'
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import { socialLinks } from '../data/social_links'
+import avatarImg from '../assets/avatar.png'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -11,7 +12,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: 'easeOut' },
 })
 
-const techStack = ['React', 'Node.js', 'JavaScript', 'Tailwind CSS', 'MongoDB']
+const techStack = ['MERN Stack', 'Django', 'Java', 'Python', 'C++']
 
 function Hero() {
   const navigate = useNavigate()
@@ -52,15 +53,11 @@ function Hero() {
 
           {/* Heading */}
           <motion.div {...fadeUp(0.2)}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Hi, I'm{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                Muhammad
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className="text-white">Hi, I'm </span>
+              <span className="text-cyan-400">Muhammad </span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-                Shah Nawaz
-              </span>
+              <span className="text-violet-400">Shah Nawaz</span>
             </h1>
           </motion.div>
 
@@ -69,8 +66,8 @@ function Hero() {
             {...fadeUp(0.3)}
             className="text-lg sm:text-xl text-slate-400 font-medium"
           >
-            Full Stack Developer &{' '}
-            <span className="text-slate-300">UI Enthusiast</span>
+            Full Stack Developer & Mern stack Developr {' '}
+            <span className="text-slate-300">ML Enthusiast</span>
           </motion.p>
 
           {/* Description */}
@@ -78,8 +75,7 @@ function Hero() {
             {...fadeUp(0.4)}
             className="text-slate-500 text-base leading-relaxed max-w-lg mx-auto lg:mx-0"
           >
-            I build modern, scalable web applications with clean code and pixel-perfect designs.
-            Passionate about creating experiences that users love.
+            I build modern, scalable full-stack applications with MERN, Django, and Python, delivering clean code, responsive design, and user-focused experiences.
           </motion.p>
 
           {/* Tech Stack pills */}
@@ -110,14 +106,6 @@ function Hero() {
               <FiArrowRight size={16} />
             </button>
 
-            <a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-700 text-slate-300 font-semibold text-sm hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/5 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <FiDownload size={16} />
-              Download CV
-            </a>
           </motion.div>
 
           {/* Social Links */}
@@ -162,14 +150,13 @@ function Hero() {
               <div className="w-full h-full rounded-full bg-slate-950" />
             </div>
 
-            {/* Avatar placeholder with initials */}
-            <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border border-slate-700">
-              <div className="text-center">
-                <div className="text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-cyan-400 to-purple-500">
-                  MSN
-                </div>
-                <div className="text-slate-500 text-xs mt-1 tracking-widest uppercase">Developer</div>
-              </div>
+            {/* Profile image */}
+            <div className="absolute inset-[3px] rounded-full overflow-hidden border border-slate-700">
+              <img
+                src={avatarImg}
+                alt="Muhammad Shah Nawaz"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
 
             {/* Floating badge — Experience */}

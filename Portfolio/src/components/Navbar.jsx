@@ -40,7 +40,7 @@ function Navbar() {
           onClick={() => navigate('/')}
           className="text-xl font-bold text-white tracking-tight hover:text-cyan-400 transition-colors duration-200"
         >
-          MSN<span className="text-cyan-400">.</span>
+          Shah Nawaz<span className="text-cyan-400">.</span>
         </button>
 
         {/* Desktop Links */}
