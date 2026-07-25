@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { FiBook, FiTarget, FiCode, FiCpu, FiSmartphone, FiGitBranch, FiZap } from 'react-icons/fi'
 import avatarImg from '../assets/avatar.png'
@@ -90,7 +89,6 @@ function About() {
             {/* Quick stats */}
             <motion.div {...fadeUp(0.5)} className="flex flex-wrap gap-6 justify-center lg:justify-start mt-8">
               {[
-                { value: '2+', label: 'Years Coding' },
                 { value: '10+', label: 'Projects Built' },
                 { value: '7+', label: 'Technologies' },
               ].map(({ value, label }) => (

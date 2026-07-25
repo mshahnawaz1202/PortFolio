@@ -1,9 +1,8 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { FiGitBranch, FiGithub, FiTerminal, FiDatabase, FiSmartphone, FiLayout, FiCpu } from 'react-icons/fi'
 
 // ─── Asset icons from /assets ────────────────────────────────────────────────
-import cppIcon      from '../assets/C++.svg'
+import cppIcon      from '../assets/cpp.svg'
 import pythonIcon   from '../assets/python.svg'
 import javaIcon     from '../assets/java.png'
 import jsIcon       from '../assets/javascript.svg'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiArrowUp } from 'react-icons/fi'
@@ -131,10 +130,10 @@ function Footer() {
         {/* Divider */}
         <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-xs">
-            &copy; {year} Muhammad Shah Nawaz. All rights reserved.
+            &copy; {year} Muhammad Shah Nawaz. Software Engineer.
           </p>
           <p className="text-slate-600 text-xs">
-            Built with React · React Router · Tailwind CSS · Framer Motion
+            
           </p>
 
           {/* Back to top */}

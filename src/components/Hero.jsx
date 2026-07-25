@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
@@ -163,16 +162,6 @@ function Hero() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-
-            {/* Floating badge — Experience */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -bottom-4 -left-4 bg-slate-800 border border-slate-700 rounded-xl px-4 py-2 shadow-xl"
-            >
-              <div className="text-cyan-400 font-bold text-lg leading-none">2+</div>
-              <div className="text-slate-400 text-xs">Years Exp.</div>
-            </motion.div>
 
             {/* Floating badge — Projects */}
             <motion.div

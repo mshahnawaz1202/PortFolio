@@ -1,8 +1,7 @@
-import React from 'react'
 import Hero from '../components/Hero'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import { FiArrowRight, FiCode, FiLayers, FiMail } from 'react-icons/fi'
+import { FiArrowRight, FiMail } from 'react-icons/fi'
 import { projects } from '../data/projects'
 
 function Home() {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiSend, FiMapPin, FiCheckCircle, FiCopy } from 'react-icons/fi'
 import { socialLinks } from '../data/social_links'
