@@ -62,12 +62,12 @@ function Navbar() {
         </ul>
 
         {/* CTA Button */}
-        <a
-          href="/contact"
+        <NavLink
+          to="/contact"
           className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-900 text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/30"
         >
           Hire Me
-        </a>
+        </NavLink>
 
         {/* Mobile Toggle */}
         <button
@@ -107,12 +107,13 @@ function Navbar() {
                 </li>
               ))}
               <li>
-                <a
-                  href="/contact"
+                <NavLink
+                  to="/contact"
+                  onClick={() => setMenuOpen(false)}
                   className="block text-center mt-2 px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold transition-all duration-200"
                 >
                   Hire Me
-                </a>
+                </NavLink>
               </li>
             </ul>
           </motion.div>

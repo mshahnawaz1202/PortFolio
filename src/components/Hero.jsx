@@ -66,7 +66,7 @@ function Hero() {
             {...fadeUp(0.3)}
             className="text-lg sm:text-xl text-slate-400 font-medium"
           >
-            Full Stack Developer & Mern stack Developr {' '}
+            Full Stack Developer &amp; MERN Stack Developer |{' '}
             <span className="text-slate-300">ML Enthusiast</span>
           </motion.p>
 
@@ -105,7 +105,12 @@ function Hero() {
               View Projects
               <FiArrowRight size={16} />
             </button>
-
+            <button
+              onClick={() => navigate('/contact')}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-700 hover:border-cyan-500/50 text-slate-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:bg-slate-800/60 hover:-translate-y-0.5"
+            >
+              Contact Me
+            </button>
           </motion.div>
 
           {/* Social Links */}
