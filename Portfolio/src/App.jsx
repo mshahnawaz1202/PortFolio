@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { About, Projects, Home, Contact } from './pages/'
+import { About, Projects, Home, Contact, Skills } from './pages/'
 import Layout from './components/Layout'
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
           
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />

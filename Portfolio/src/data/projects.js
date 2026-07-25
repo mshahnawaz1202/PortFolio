@@ -1,77 +1,103 @@
-const projects = [
-    {
-        id:1,
-        title: "Tic Tac Toe",
-        description:"This project is a console-based Tic-Tac-Toe game developed in C++. The application allows two players to play Tic-Tac-Toe using a clean text-based interface. It also includes persistent score tracking, match history storage, leaderboard functionality, and highest scorer statistics through file handling.",
-        github:"https://github.com/mshahnawaz1202/TicTacToe",
-        TechUsed : "C++"
-    },
+import tictactoeImg from '../assets/tictactoe.png'
+import contactBookImg from '../assets/contact-book.jfif'
+import instagramImg from '../assets/instagram.jfif'
+import osImg from '../assets/os.jfif'
+import powerBiImg from '../assets/power-bi.jfif'
+import poetryImg from '../assets/poetry.jfif'
+import logoImg    from '../assets/logo_pic.png'
+import dalgonaImg from '../assets/dalgona.png'
+import testopsImg from '../assets/testops.jfif'
+import stayfinderImg from '../assets/stayfinder.jfif'
 
+export const projects = [
     {
-        id:2,
-        title : "Contact Book Application",
-        description:"",
-        github : "https://github.com/mshahnawaz1202/Contact-Book-Application",
-        TechUsed : "C++, OOP"
+        id: 1,
+        title: 'Tic Tac Toe',
+        description: 'A console-based Tic-Tac-Toe game developed in C++. Allows two players to compete via a clean text-based interface, with persistent score tracking, match history storage, leaderboard functionality, and highest scorer statistics through file handling.',
+        github: 'https://github.com/mshahnawaz1202/TicTacToe',
+        techUsed: ['C++'],
+        category: 'C++',
+        image: tictactoeImg,
     },
     {
-        id:3,
-        title:"Mini Instagram",
-        description:"This is a C++ project that simulates a simplified version of Instagram. It includes core functionalities such as user registration, login, sending messages, managing posts, and handling friend requests. The program runs in a terminal environment and uses Windows-specific libraries for UI enhancements.",
-        github: "https://github.com/mshahnawaz1202/Mini-Instagram",
-        TechUsed : "C++, Data structure"
-
+        id: 2,
+        title: 'Contact Book Application',
+        description: 'A robust console-based contact management system built in C++ using OOP principles. Supports CRUD operations, file persistence, and search functionality for managing personal and professional contacts.',
+        github: 'https://github.com/mshahnawaz1202/Contact-Book-Application',
+        techUsed: ['C++', 'OOP'],
+        category: 'C++',
+        image: contactBookImg,
     },
     {
-        id:4,
-        title:"Mini Operating System",
-        description:"This is a console-based mini operating system developed in C++. It simulates core operating system functionalities like process creation, termination, memory management, and includes various utility applications.",
-        github:"https://github.com/mshahnawaz1202/Mini-Operating-System",
-        TechUsed : "C++ , OS concepts"
+        id: 3,
+        title: 'Mini Instagram',
+        description: 'A C++ terminal simulation of Instagram with user registration, login, messaging, posts management, and friend request handling. Uses Windows-specific libraries for enhanced UI in a terminal environment.',
+        github: 'https://github.com/mshahnawaz1202/Mini-Instagram',
+        techUsed: ['C++', 'Data Structures'],
+        category: 'C++',
+        image: instagramImg,
     },
     {
-        id:5,
-        title:"Mini Power BI",
-        description:"This project is a Power BI–style Data Analytics Dashboard built with Streamlit , offering a complete end-to-end data workflow: Upload,Clean,Visualize,Train ML models,Predict,Chat with your dataset => All in one interactive web application —> no coding required for the user.",
-        github : "https://github.com/mshahnawaz1202/MiniPowerBI",
-        TechUsed : "Python, Streamlit, Numpy, Pandas,Scikit-learn, Matplotlib"
+        id: 4,
+        title: 'Mini Operating System',
+        description: 'A console-based mini OS simulator in C++ covering core OS concepts: process creation & termination, memory management, scheduling algorithms, and various built-in utility applications.',
+        github: 'https://github.com/mshahnawaz1202/Mini-Operating-System',
+        techUsed: ['C++', 'OS Concepts'],
+        category: 'C++',
+        image: osImg,
     },
     {
-        id:6,
-        title:"Arabic Poetry Management",
-        description : "A sophisticated, multi-layered Desktop Application for managing, analyzing, and exploring Arabic poetry. Built with JavaFX and a robust 3-Tier Architecture, this system integrates advanced NLP capabilities to provide deep insights into poetic structures.",
-        github: "https://github.com/mshahnawaz1202/Arabic-Poetry-Management-System",
-        TechUsed : "Java, JavaFx, MySQL, Design Priciples and Patterns"
-
+        id: 5,
+        title: 'Mini Power BI',
+        description: 'A Power BI–style Data Analytics Dashboard built with Streamlit. Offers end-to-end workflow: Upload, Clean, Visualize, Train ML models, Predict, and Chat with your dataset — all in one interactive web app, no coding required.',
+        github: 'https://github.com/mshahnawaz1202/MiniPowerBI',
+        techUsed: ['Python', 'Streamlit', 'NumPy', 'Pandas', 'Scikit-learn', 'Matplotlib'],
+        category: 'Python',
+        image: powerBiImg,
     },
     {
-        id:7,
-        title:'BOS Optics',
-        description:'BOS Optics is a full-stack Django e-commerce platform developed for an optical store. It enables customers to browse premium eyewear, search products, manage shopping carts, place orders, book eye-care appointments, and read informative blog posts.',
-        github:"https://github.com/mshahnawaz1202/BOS-Optics",
-        TechUsed:"Python, Django, Javascript,SQLite, HTML5, CSS3, uv(Package Manager)"
+        id: 6,
+        title: 'Arabic Poetry Management',
+        description: 'A sophisticated multi-layered Desktop Application for managing, analyzing, and exploring Arabic poetry. Built with JavaFX and a robust 3-Tier Architecture, integrating advanced NLP capabilities for deep poetic structure insights.',
+        github: 'https://github.com/mshahnawaz1202/Arabic-Poetry-Management-System',
+        techUsed: ['Java', 'JavaFX', 'MySQL', 'Design Patterns'],
+        category: 'Java',
+        image: poetryImg,
     },
     {
-        id:7,
-        title:"StayFinder",
-        description:"A full-featured property booking app (Airbnb-style) built with Kotlin, Jetpack Compose + Views, Firebase, and Room/SQLite.",
-        github:"https://github.com/mshahnawaz1202/Stay-Finder-Airbnb-Inspired-Property-Rental-Application-",
-        TechUsed:"Kotlin, "
+        id: 7,
+        title: 'BOS Optics',
+        description: 'A full-stack Django e-commerce platform for an optical store. Customers can browse premium eyewear, search products, manage carts, place orders, book eye-care appointments, and read blog posts.',
+        github: 'https://github.com/mshahnawaz1202/BOS-Optics',
+        techUsed: ['Python', 'Django', 'JavaScript', 'SQLite', 'HTML5', 'CSS3'],
+        category: 'Web',
+        image: logoImg,
     },
     {
-        id:8,
-        title:"DALGONA CHALLENGE",
-        description:"A terminal-based DalGona (shape guessing) game implemented in Bash. Players identify ASCII shapes within a time limit and earn points. This project includes single-player, vs-computer, and multiplayer modes.",
-        github:"https://github.com/mshahnawaz1202/DALGONA-CHALLENGE",
-        TechUsed:"Bash, WSL2"
+        id: 8,
+        title: 'StayFinder',
+        description: 'A full-featured Airbnb-inspired property booking Android app built with Kotlin and Jetpack Compose. Features Firebase authentication, real-time listings, Room/SQLite offline support, and rich UI components.',
+        github: 'https://github.com/mshahnawaz1202/Stay-Finder-Airbnb-Inspired-Property-Rental-Application-',
+        techUsed: ['Kotlin', 'Jetpack Compose', 'Firebase', 'Room/SQLite'],
+        category: 'Mobile',
+        image: stayfinderImg,
     },
     {
-        id:9,
-        title:"TesOps and Automation Framework",
-        description:"A comprehensive BDD (Behavior-Driven Development) Test Automation Framework for Web UI testing built with Java, Selenium WebDriver, Cucumber, and Allure Reports.",
-        github:"https://github.com/mshahnawaz1202/TestOps-andAutomation-Framework",
-        TechUsed:"Java, Selenium, Cucumber"
-    }
-
-
+        id: 9,
+        title: 'Dalgona Challenge',
+        description: 'A terminal-based Dalgona (shape guessing) game implemented in Bash. Players identify ASCII shapes within a time limit and earn points. Features single-player, vs-computer, and multiplayer modes.',
+        github: 'https://github.com/mshahnawaz1202/DALGONA-CHALLENGE',
+        techUsed: ['Bash', 'WSL2'],
+        category: 'Other',
+        image: dalgonaImg,
+    },
+    {
+        id: 10,
+        title: 'TestOps & Automation Framework',
+        description: 'A comprehensive BDD Test Automation Framework for Web UI testing. Built with Java, Selenium WebDriver, Cucumber, and Allure Reports — enabling clean, maintainable, and scalable automated test suites.',
+        github: 'https://github.com/mshahnawaz1202/TestOps-andAutomation-Framework',
+        techUsed: ['Java', 'Selenium', 'Cucumber', 'Allure'],
+        category: 'Java',
+        image: testopsImg,
+    },
 ]

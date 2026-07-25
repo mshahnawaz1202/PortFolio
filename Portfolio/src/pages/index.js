@@ -2,12 +2,10 @@ import About from "./About";
 import Contact from "./Contact";
 import Home from "./Home";
 import Projects from "./Projects";
-
-
-
+import Skills from "./Skills";
 
 export {
-    About,Contact,Home,Projects
+    About, Contact, Home, Projects, Skills
 }
 
 
