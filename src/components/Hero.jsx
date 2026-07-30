@@ -65,8 +65,8 @@ function Hero() {
             {...fadeUp(0.3)}
             className="text-lg sm:text-xl text-slate-400 font-medium"
           >
-            Full Stack Developer &amp; MERN Stack Developer |{' '}
-            <span className="text-slate-300">ML Enthusiast</span>
+            {' '}
+            <span className="text-slate-300">MERN Stack Developer | Django | ML Enthusiast</span>
           </motion.p>
 
           {/* Description */}

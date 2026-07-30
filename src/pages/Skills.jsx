@@ -2,23 +2,25 @@ import { motion } from 'framer-motion'
 import { FiGitBranch, FiGithub, FiTerminal, FiDatabase, FiSmartphone, FiLayout, FiCpu } from 'react-icons/fi'
 
 // ─── Asset icons from /assets ────────────────────────────────────────────────
-import cppIcon      from '../assets/cpp.svg'
-import pythonIcon   from '../assets/python.svg'
-import javaIcon     from '../assets/java.png'
-import jsIcon       from '../assets/javascript.svg'
-import kotlinIcon   from '../assets/kotlin.svg'
-import bashIcon     from '../assets/bash.png'
-import htmlIcon     from '../assets/html5.svg'
-import cssIcon      from '../assets/css.svg'
-import djangoIcon   from '../assets/django.svg'
-import mysqlIcon    from '../assets/mysql.svg'
-import numpyIcon    from '../assets/numpy.svg'
-import pandasIcon   from '../assets/pandas.svg'
+import cppIcon from '../assets/cpp.svg'
+import pythonIcon from '../assets/python.svg'
+import javaIcon from '../assets/java.png'
+import jsIcon from '../assets/javascript.svg'
+import kotlinIcon from '../assets/kotlin.svg'
+import bashIcon from '../assets/bash.png'
+import htmlIcon from '../assets/html5.svg'
+import cssIcon from '../assets/css.svg'
+import djangoIcon from '../assets/django.svg'
+import mysqlIcon from '../assets/mysql.svg'
+import numpyIcon from '../assets/numpy.svg'
+import pandasIcon from '../assets/pandas.svg'
 import matplotlibIcon from '../assets/matplotlib.png'
-import sklearnIcon  from '../assets/scikitlearn.svg'
+import sklearnIcon from '../assets/scikitlearn.svg'
 import streamlitIcon from '../assets/streamlit.svg'
-import androidIcon  from '../assets/android.svg'
-import xmlIcon      from '../assets/xml.svg'
+import androidIcon from '../assets/android.svg'
+import xmlIcon from '../assets/xml.svg'
+import jwt from '../assets/jwt.svg'
+import jest from '../assets/jest.svg'
 
 // ─── Skill Categories ─────────────────────────────────────────────────────────
 const skillCategories = [
@@ -28,12 +30,12 @@ const skillCategories = [
     icon: <FiCpu size={18} />,
     accent: 'cyan',
     skills: [
-      { name: 'C++',        icon: cppIcon,    level: 'Advanced' },
-      { name: 'Python',     icon: pythonIcon, level: 'Advanced' },
-      { name: 'Java',       icon: javaIcon,   level: 'Intermediate' },
-      { name: 'JavaScript', icon: jsIcon,     level: 'Intermediate' },
-      { name: 'Kotlin',     icon: kotlinIcon, level: 'Intermediate' },
-      { name: 'Bash',       icon: bashIcon,   level: 'Intermediate' },
+      { name: 'C++', icon: cppIcon, level: 'Advanced' },
+      { name: 'Python', icon: pythonIcon, level: 'Advanced' },
+      { name: 'Java', icon: javaIcon, level: 'Intermediate' },
+      { name: 'JavaScript', icon: jsIcon, level: 'Advanced' },
+      { name: 'Kotlin', icon: kotlinIcon, level: 'Intermediate' },
+      { name: 'Bash', icon: bashIcon, level: 'Advanced' },
     ],
   },
   {
@@ -42,11 +44,11 @@ const skillCategories = [
     icon: <FiLayout size={18} />,
     accent: 'violet',
     skills: [
-      { name: 'HTML5',      icon: htmlIcon,   level: 'Advanced' },
-      { name: 'CSS3',       icon: cssIcon,    level: 'Advanced' },
-      { name: 'JavaScript', icon: jsIcon,     level: 'Intermediate' },
-      { name: 'React',      emoji: '⚛️',      level: 'Intermediate' },
-      { name: 'Tailwind',   emoji: '🎨',      level: 'Intermediate' },
+      { name: 'HTML5', icon: htmlIcon, level: 'Advanced' },
+      { name: 'CSS3', icon: cssIcon, level: 'Advanced' },
+      { name: 'JavaScript', icon: jsIcon, level: 'Intermediate' },
+      { name: 'React', emoji: '⚛️', level: 'Intermediate' },
+      { name: 'Tailwind', emoji: '🎨', level: 'Intermediate' },
     ],
   },
   {
@@ -55,10 +57,20 @@ const skillCategories = [
     icon: <FiTerminal size={18} />,
     accent: 'emerald',
     skills: [
-      { name: 'Django',     icon: djangoIcon, level: 'Advanced' },
-      { name: 'Node.js',    emoji: '🟢',      level: 'Beginner' },
-      { name: 'Express.js', emoji: '🚂',      level: 'Beginner' },
-      { name: 'REST APIs',  emoji: '🔗',      level: 'Intermediate' },
+      { name: 'Django', icon: djangoIcon, level: 'Advanced' },
+      { name: 'Node.js', emoji: '🟢', level: 'Beginner' },
+      { name: 'Express.js', emoji: '🚂', level: 'Beginner' },
+      { name: 'REST APIs', emoji: '🔗', level: 'Intermediate' },
+      {
+        name: 'JWT (JSON Web Token)',
+        icon: jwt,
+        level: 'Intermediate'
+      },
+      {
+        name : "Jest",
+        icon : jest,
+        level : "Intermediate"
+      }
     ],
   },
   {
@@ -67,22 +79,22 @@ const skillCategories = [
     icon: <FiDatabase size={18} />,
     accent: 'amber',
     skills: [
-      { name: 'MySQL',      icon: mysqlIcon,  level: 'Intermediate' },
-      { name: 'MongoDB',    emoji: '🍃',      level: 'Beginner' },
-      { name: 'SQLite',     emoji: '💾',      level: 'Intermediate' },
+      { name: 'MySQL', icon: mysqlIcon, level: 'Intermediate' },
+      { name: 'MongoDB', emoji: '🍃', level: 'Beginner' },
+      { name: 'SQLite', emoji: '💾', level: 'Intermediate' },
     ],
   },
   {
-    id: 'dataml',
+    id: 'data/ml',
     label: 'Data Science & ML',
     icon: <span className="text-lg">🤖</span>,
     accent: 'orange',
     skills: [
-      { name: 'NumPy',       icon: numpyIcon,     level: 'Intermediate' },
-      { name: 'Pandas',      icon: pandasIcon,    level: 'Intermediate' },
-      { name: 'Matplotlib',  icon: matplotlibIcon,level: 'Intermediate' },
-      { name: 'Scikit-learn',icon: sklearnIcon,   level: 'Intermediate' },
-      { name: 'Streamlit',   icon: streamlitIcon, level: 'Intermediate' },
+      { name: 'NumPy', icon: numpyIcon, level: 'Intermediate' },
+      { name: 'Pandas', icon: pandasIcon, level: 'Intermediate' },
+      { name: 'Matplotlib', icon: matplotlibIcon, level: 'Intermediate' },
+      { name: 'Scikit-learn', icon: sklearnIcon, level: 'Intermediate' },
+      { name: 'Streamlit', icon: streamlitIcon, level: 'Intermediate' },
     ],
   },
   {
@@ -91,11 +103,11 @@ const skillCategories = [
     icon: <FiSmartphone size={18} />,
     accent: 'purple',
     skills: [
-      { name: 'Kotlin',          icon: kotlinIcon,  level: 'Intermediate' },
-      { name: 'Android SDK',     icon: androidIcon, level: 'Intermediate' },
-      { name: 'XML Layouts',     icon: xmlIcon,     level: 'Intermediate' },
-      { name: 'Jetpack Compose', emoji: '🎭',       level: 'Intermediate' },
-      { name: 'Firebase',        emoji: '🔥',       level: 'Beginner' },
+      { name: 'Kotlin', icon: kotlinIcon, level: 'Intermediate' },
+      { name: 'Android SDK', icon: androidIcon, level: 'Intermediate' },
+      { name: 'XML Layouts', icon: xmlIcon, level: 'Intermediate' },
+      { name: 'Jetpack Compose', emoji: '🎭', level: 'Intermediate' },
+      { name: 'Firebase', emoji: '🔥', level: 'Beginner' },
     ],
   },
   {
@@ -104,50 +116,50 @@ const skillCategories = [
     icon: <FiGitBranch size={18} />,
     accent: 'rose',
     skills: [
-      { name: 'Git',      icon: null, emoji: '🌿', level: 'Advanced' },
-      { name: 'GitHub',   icon: null, emoji: '🐙', level: 'Advanced', FiIcon: FiGithub },
+      { name: 'Git', icon: null, emoji: '🌿', level: 'Advanced' },
+      { name: 'GitHub', icon: null, emoji: '🐙', level: 'Advanced', FiIcon: FiGithub },
       { name: 'Linux/WSL2', icon: bashIcon, level: 'Intermediate' },
-      { name: 'Postman',  emoji: '📮',            level: 'Intermediate' },
-      { name: 'VS Code',  emoji: '🖥️',            level: 'Advanced' },
-      { name: 'Selenium', emoji: '🤖',            level: 'Intermediate' },
+      { name: 'Postman', emoji: '📮', level: 'Intermediate' },
+      { name: 'VS Code', emoji: '🖥️', level: 'Advanced' },
+      { name: 'Selenium', emoji: '🤖', level: 'Intermediate' },
     ],
   },
 ]
 
 const levelColor = {
-  'Advanced':     'text-cyan-400 bg-cyan-400/10 border-cyan-400/25',
+  'Advanced': 'text-cyan-400 bg-cyan-400/10 border-cyan-400/25',
   'Intermediate': 'text-violet-400 bg-violet-400/10 border-violet-400/25',
-  'Beginner':     'text-amber-400 bg-amber-400/10 border-amber-400/25',
+  'Beginner': 'text-amber-400 bg-amber-400/10 border-amber-400/25',
 }
 
 const accentBorder = {
-  cyan:    'border-cyan-500/30 hover:border-cyan-500/60 hover:shadow-cyan-500/10',
-  violet:  'border-violet-500/30 hover:border-violet-500/60 hover:shadow-violet-500/10',
+  cyan: 'border-cyan-500/30 hover:border-cyan-500/60 hover:shadow-cyan-500/10',
+  violet: 'border-violet-500/30 hover:border-violet-500/60 hover:shadow-violet-500/10',
   emerald: 'border-emerald-500/30 hover:border-emerald-500/60 hover:shadow-emerald-500/10',
-  amber:   'border-amber-500/30 hover:border-amber-500/60 hover:shadow-amber-500/10',
-  orange:  'border-orange-500/30 hover:border-orange-500/60 hover:shadow-orange-500/10',
-  purple:  'border-purple-500/30 hover:border-purple-500/60 hover:shadow-purple-500/10',
-  rose:    'border-rose-500/30 hover:border-rose-500/60 hover:shadow-rose-500/10',
+  amber: 'border-amber-500/30 hover:border-amber-500/60 hover:shadow-amber-500/10',
+  orange: 'border-orange-500/30 hover:border-orange-500/60 hover:shadow-orange-500/10',
+  purple: 'border-purple-500/30 hover:border-purple-500/60 hover:shadow-purple-500/10',
+  rose: 'border-rose-500/30 hover:border-rose-500/60 hover:shadow-rose-500/10',
 }
 
 const accentText = {
-  cyan:    'text-cyan-400',
-  violet:  'text-violet-400',
+  cyan: 'text-cyan-400',
+  violet: 'text-violet-400',
   emerald: 'text-emerald-400',
-  amber:   'text-amber-400',
-  orange:  'text-orange-400',
-  purple:  'text-purple-400',
-  rose:    'text-rose-400',
+  amber: 'text-amber-400',
+  orange: 'text-orange-400',
+  purple: 'text-purple-400',
+  rose: 'text-rose-400',
 }
 
 const accentBg = {
-  cyan:    'bg-cyan-500/10',
-  violet:  'bg-violet-500/10',
+  cyan: 'bg-cyan-500/10',
+  violet: 'bg-violet-500/10',
   emerald: 'bg-emerald-500/10',
-  amber:   'bg-amber-500/10',
-  orange:  'bg-orange-500/10',
-  purple:  'bg-purple-500/10',
-  rose:    'bg-rose-500/10',
+  amber: 'bg-amber-500/10',
+  orange: 'bg-orange-500/10',
+  purple: 'bg-purple-500/10',
+  rose: 'bg-rose-500/10',
 }
 
 function SkillCard({ skill, accent }) {
