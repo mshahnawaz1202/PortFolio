@@ -6,7 +6,11 @@ import { projects } from '../data/projects'
 
 function Home() {
   const navigate = useNavigate()
-  const featuredProjects = projects.slice(0, 3)
+  const featuredProjects = [
+    projects.find(p => p.id === 1),
+    projects.find(p => p.id === 2),
+    projects.find(p => p.id === 4),
+  ];
 
   return (
     <>
