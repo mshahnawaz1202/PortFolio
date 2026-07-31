@@ -3,26 +3,36 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiGithub } from 'react-icons/fi'
 import { projects } from '../data/projects'
 
-const categories = ['All', 'C++', 'Python', 'Java', 'Web', 'Mobile', 'Other']
+const categories = [
+  "All",
+  "C++",
+  "Python",
+  "Java",
+  "Web",
+  "Mobile",
+  "Other",
+  "Data-Science",
+];
 
 const categoryGlow = {
-  'C++':    'from-blue-500/20 to-cyan-500/20',
-  'Python': 'from-yellow-500/20 to-amber-500/20',
-  'Java':   'from-orange-500/20 to-red-500/20',
-  'Web':    'from-emerald-500/20 to-green-500/20',
-  'Mobile': 'from-purple-500/20 to-violet-500/20',
-  'Other':  'from-slate-500/20 to-slate-400/20',
-}
+  "C++": "from-blue-500/20 to-cyan-500/20",
+  "Python": "from-yellow-500/20 to-amber-500/20",
+  "Java": "from-orange-500/20 to-red-500/20",
+  "Web": "from-emerald-500/20 to-green-500/20",
+  "Mobile": "from-purple-500/20 to-violet-500/20",
+  "Other": "from-slate-500/20 to-slate-400/20",
+  "Data-Science": "from-red-500/20 to-blue-400/20",
+};
 
 const categoryBadge = {
-  'C++':    'bg-blue-500/10 text-blue-300 border-blue-500/25',
-  'Python': 'bg-amber-500/10 text-amber-300 border-amber-500/25',
-  'Java':   'bg-orange-500/10 text-orange-300 border-orange-500/25',
-  'Web':    'bg-emerald-500/10 text-emerald-300 border-emerald-500/25',
-  'Mobile': 'bg-purple-500/10 text-purple-300 border-purple-500/25',
-  'Other':  'bg-slate-500/10 text-slate-300 border-slate-500/25',
-}
-
+  "C++": "bg-blue-500/10 text-blue-300 border-blue-500/25",
+  "Python": "bg-amber-500/10 text-amber-300 border-amber-500/25",
+  "Java": "bg-orange-500/10 text-orange-300 border-orange-500/25",
+  "Web": "bg-emerald-500/10 text-emerald-300 border-emerald-500/25",
+  "Mobile": "bg-purple-500/10 text-purple-300 border-purple-500/25",
+  "Other": "bg-slate-500/10 text-slate-300 border-slate-500/25",
+  "Data-Science": "bg-red-500/10 text-red-300 border-red-500/25",
+};
 function ProjectCard({ project, index }) {
   const [expanded, setExpanded] = useState(false)
   const truncated = project.description.length > 110
