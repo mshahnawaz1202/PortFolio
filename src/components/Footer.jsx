@@ -1,13 +1,12 @@
-import { NavLink, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiArrowUp } from 'react-icons/fi'
 import { socialLinks } from '../data/social_links'
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/contact', label: 'Contact' },
+  { to: 'home', label: 'Home' },
+  { to: 'about', label: 'About' },
+  { to: 'projects', label: 'Projects' },
+  { to: 'contact', label: 'Contact' },
 ]
 
 const socials = [
@@ -17,9 +16,13 @@ const socials = [
   { icon: FiMail,      href: socialLinks.email,      label: 'Email' },
 ]
 
+function scrollToSection(id) {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 function Footer() {
   const year = new Date().getFullYear()
-  const navigate = useNavigate()
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
@@ -35,7 +38,7 @@ function Footer() {
           {/* Brand Column */}
           <div className="flex flex-col gap-4">
             <button
-              onClick={() => navigate('/')}
+              onClick={() => scrollToSection('home')}
               className="text-2xl font-bold text-white w-fit hover:text-cyan-400 transition-colors duration-200"
             >
               MSN<span className="text-cyan-400">.</span>
@@ -68,18 +71,13 @@ function Footer() {
             <ul className="flex flex-col gap-2">
               {navLinks.map(({ to, label }) => (
                 <li key={to}>
-                  <NavLink
-                    to={to}
-                    end={to === '/'}
-                    className={({ isActive }) =>
-                      `text-sm transition-colors duration-200 flex items-center gap-2 group ${
-                        isActive ? 'text-cyan-400' : 'text-slate-400 hover:text-white'
-                      }`
-                    }
+                  <span
+                    onClick={() => scrollToSection(to)}
+                    className="text-sm transition-colors duration-200 flex items-center gap-2 group text-slate-400 hover:text-white cursor-pointer"
                   >
                     <span className="w-4 h-px bg-slate-600 group-hover:bg-cyan-400 group-hover:w-6 transition-all duration-300 inline-block" />
                     {label}
-                  </NavLink>
+                  </span>
                 </li>
               ))}
             </ul>

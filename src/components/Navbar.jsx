@@ -1,23 +1,44 @@
 import { useState, useEffect } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
 import { HiMenuAlt3, HiX } from 'react-icons/hi'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/skills', label: 'Skills' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/contact', label: 'Contact' },
+  { to: 'home', label: 'Home' },
+  { to: 'about', label: 'About' },
+  { to: 'skills', label: 'Skills' },
+  { to: 'projects', label: 'Projects' },
+  { to: 'contact', label: 'Contact' },
 ]
+
+function scrollToSection(id) {
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const navigate = useNavigate()
+  const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+
+      // Determine which section is in view
+      const sectionIds = links.map(l => l.to)
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i])
+        if (el) {
+          const rect = el.getBoundingClientRect()
+          if (rect.top <= 120) {
+            setActiveSection(sectionIds[i])
+            break
+          }
+        }
+      }
+    }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -28,7 +49,7 @@ function Navbar() {
       : 'bg-transparent'
   }`
 
-  const linkBase = 'relative text-sm font-medium transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full'
+  const linkBase = 'relative text-sm font-medium transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full cursor-pointer'
   const linkActive = 'text-cyan-400 after:w-full'
   const linkInactive = 'text-slate-300 hover:text-white'
 
@@ -38,7 +59,7 @@ function Navbar() {
 
         {/* Logo */}
         <button
-          onClick={() => navigate('/')}
+          onClick={() => scrollToSection('home')}
           className="text-xl font-bold text-white tracking-tight hover:text-cyan-400 transition-colors duration-200"
         >
           Shah Nawaz<span className="text-cyan-400">.</span>
@@ -48,26 +69,23 @@ function Navbar() {
         <ul className="hidden md:flex items-center gap-8">
           {links.map(({ to, label }) => (
             <li key={to}>
-              <NavLink
-                to={to}
-                end={to === '/'}
-                className={({ isActive }) =>
-                  `${linkBase} ${isActive ? linkActive : linkInactive}`
-                }
+              <span
+                onClick={() => scrollToSection(to)}
+                className={`${linkBase} ${activeSection === to ? linkActive : linkInactive}`}
               >
                 {label}
-              </NavLink>
+              </span>
             </li>
           ))}
         </ul>
 
-        {/* CTA Button */}
-        <NavLink
-          to="/contact"
+        {/* CTA Button — Hire Me scrolls to contact */}
+        <button
+          onClick={() => scrollToSection('contact')}
           className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-900 text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/30"
         >
           Hire Me
-        </NavLink>
+        </button>
 
         {/* Mobile Toggle */}
         <button
@@ -92,28 +110,23 @@ function Navbar() {
             <ul className="flex flex-col gap-4">
               {links.map(({ to, label }) => (
                 <li key={to}>
-                  <NavLink
-                    to={to}
-                    end={to === '/'}
-                    onClick={() => setMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `block text-base font-medium py-2 border-b border-slate-800 transition-colors duration-200 ${
-                        isActive ? 'text-cyan-400' : 'text-slate-300 hover:text-white'
-                      }`
-                    }
+                  <span
+                    onClick={() => { scrollToSection(to); setMenuOpen(false) }}
+                    className={`block text-base font-medium py-2 border-b border-slate-800 transition-colors duration-200 cursor-pointer ${
+                      activeSection === to ? 'text-cyan-400' : 'text-slate-300 hover:text-white'
+                    }`}
                   >
                     {label}
-                  </NavLink>
+                  </span>
                 </li>
               ))}
               <li>
-                <NavLink
-                  to="/contact"
-                  onClick={() => setMenuOpen(false)}
-                  className="block text-center mt-2 px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold transition-all duration-200"
+                <button
+                  onClick={() => { scrollToSection('contact'); setMenuOpen(false) }}
+                  className="block w-full text-center mt-2 px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold transition-all duration-200"
                 >
                   Hire Me
-                </NavLink>
+                </button>
               </li>
             </ul>
           </motion.div>

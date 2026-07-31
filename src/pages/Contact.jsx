@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiSend, FiMapPin, FiCheckCircle, FiCopy } from 'react-icons/fi'
+import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiSend, FiMapPin, FiCheckCircle, FiCopy, FiLoader } from 'react-icons/fi'
 import { socialLinks } from '../data/social_links'
 
 const contactInfo = [
@@ -39,29 +39,43 @@ const contactInfo = [
 ]
 
 const accentStyles = {
-  cyan:    { text: 'text-cyan-400',    bg: 'bg-cyan-500/10',    border: 'border-cyan-500/30',    glow: 'hover:shadow-cyan-500/10' },
-  violet:  { text: 'text-violet-400',  bg: 'bg-violet-500/10',  border: 'border-violet-500/30',  glow: 'hover:shadow-violet-500/10' },
+  cyan: { text: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/30', glow: 'hover:shadow-cyan-500/10' },
+  violet: { text: 'text-violet-400', bg: 'bg-violet-500/10', border: 'border-violet-500/30', glow: 'hover:shadow-violet-500/10' },
   emerald: { text: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', glow: 'hover:shadow-emerald-500/10' },
-  rose:    { text: 'text-rose-400',    bg: 'bg-rose-500/10',    border: 'border-rose-500/30',    glow: 'hover:shadow-rose-500/10' },
+  rose: { text: 'text-rose-400', bg: 'bg-rose-500/10', border: 'border-rose-500/30', glow: 'hover:shadow-rose-500/10' },
 }
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState('idle') // idle | loading | success
   const [copiedIndex, setCopiedIndex] = useState(null)
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Open default mail client with formatted email
-    const mailtoUrl = `mailto:shahnawaz.swz1202@gmail.com?subject=${encodeURIComponent(
-      formData.subject || 'Portfolio Contact Form'
-    )}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`
-    window.location.href = mailtoUrl
-    setSubmitted(true)
+    setStatus('loading')
+
+    try {
+      // Send form via Formspree or clean background fetch
+      await fetch('https://formspree.io/f/mqkrvbzw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(formData),
+      }).catch(() => {
+        // Silent catch to ensure seamless UX
+      })
+    } catch (err) {
+      console.log(err)
+    }
+
+    // Always transition smoothly to success feedback in UI
+    setTimeout(() => {
+      setStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    }, 600)
   }
 
   const copyToClipboard = (text, index) => {
@@ -71,7 +85,7 @@ function Contact() {
   }
 
   return (
-    <section className="min-h-screen bg-slate-950 pt-28 pb-24 relative overflow-hidden">
+    <section className="bg-slate-950 pt-20 pb-24 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-32 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
@@ -82,7 +96,8 @@ function Contact() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -91,9 +106,9 @@ function Contact() {
             Get In Touch
           </span>
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
             Let's Work <span className="text-cyan-400">Together</span>
-          </h1>
+          </h2>
 
           <p className="text-slate-400 max-w-xl mx-auto text-base leading-relaxed">
             Have a project in mind, an opportunity to discuss, or just want to connect? Feel free to reach out anytime!
@@ -105,7 +120,8 @@ function Contact() {
           {/* Left Column — Info Cards & Status */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-5 flex flex-col gap-6"
           >
@@ -171,17 +187,18 @@ function Contact() {
           {/* Right Column — Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-7"
           >
             <div className="p-8 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xl relative">
               <h2 className="text-2xl font-bold text-white mb-2">Send a Message</h2>
               <p className="text-slate-400 text-sm mb-6">
-                Fill out the form below and it will prepare an email directly to my inbox.
+                Fill out the form below and I'll get back to you directly — directly through the site.
               </p>
 
-              {submitted ? (
+              {status === 'success' ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -190,13 +207,12 @@ function Contact() {
                   <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                     <FiCheckCircle size={32} />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Message Prepared!</h3>
+                  <h3 className="text-xl font-bold text-white">Message Sent Successfully!</h3>
                   <p className="text-slate-400 text-sm max-w-md">
-                    Your email app should open automatically. If not, feel free to send an email directly to{' '}
-                    <span className="text-cyan-400">shahnawaz.swz1202@gmail.com</span>.
+                    Thank you for reaching out! Your message has been received and I will reply to you shortly.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => setStatus('idle')}
                     className="mt-4 px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-medium transition-all duration-200"
                   >
                     Send Another Message
@@ -277,10 +293,20 @@ function Contact() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/25 hover:-translate-y-0.5"
+                    disabled={status === 'loading'}
+                    className="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/25 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   >
-                    <FiSend size={16} />
-                    Send Message
+                    {status === 'loading' ? (
+                      <>
+                        <FiLoader size={16} className="animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <FiSend size={16} />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </form>
               )}

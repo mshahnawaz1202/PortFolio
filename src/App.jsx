@@ -1,25 +1,34 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { About, Projects, Home, Contact, Skills } from './pages/'
-import Layout from './components/Layout'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Hero from './components/Hero'
+import About from './pages/About'
+import Skills from './pages/Skills'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Layout route: Navbar + Outlet wraps all pages */}
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-
-          {/* Catch-all: redirect unknown paths to home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="min-h-screen flex flex-col bg-slate-950">
+      <Navbar />
+      <main className="flex-1">
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="about" style={{ scrollMarginTop: '64px' }}>
+          <About />
+        </section>
+        <section id="skills" style={{ scrollMarginTop: '64px' }}>
+          <Skills />
+        </section>
+        <section id="projects" style={{ scrollMarginTop: '64px' }}>
+          <Projects />
+        </section>
+        <section id="contact" style={{ scrollMarginTop: '64px' }}>
+          <Contact />
+        </section>
+      </main>
+      <Footer />
+    </div>
   )
 }
 

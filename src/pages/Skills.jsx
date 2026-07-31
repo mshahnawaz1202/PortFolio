@@ -58,8 +58,8 @@ const skillCategories = [
     accent: 'emerald',
     skills: [
       { name: 'Django', icon: djangoIcon, level: 'Advanced' },
-      { name: 'Node.js', emoji: '🟢', level: 'Beginner' },
-      { name: 'Express.js', emoji: '🚂', level: 'Beginner' },
+      { name: 'Node.js', emoji: '🟢', level: 'Intermediate' },
+      { name: 'Express.js', emoji: '🚂', level: 'Intermediate' },
       { name: 'REST APIs', emoji: '🔗', level: 'Intermediate' },
       {
         name: 'JWT (JSON Web Token)',
@@ -80,7 +80,7 @@ const skillCategories = [
     accent: 'amber',
     skills: [
       { name: 'MySQL', icon: mysqlIcon, level: 'Intermediate' },
-      { name: 'MongoDB', emoji: '🍃', level: 'Beginner' },
+      { name: 'MongoDB', emoji: '🍃', level: 'Intermediate' },
       { name: 'SQLite', emoji: '💾', level: 'Intermediate' },
     ],
   },
@@ -107,7 +107,7 @@ const skillCategories = [
       { name: 'Android SDK', icon: androidIcon, level: 'Intermediate' },
       { name: 'XML Layouts', icon: xmlIcon, level: 'Intermediate' },
       { name: 'Jetpack Compose', emoji: '🎭', level: 'Intermediate' },
-      { name: 'Firebase', emoji: '🔥', level: 'Beginner' },
+      { name: 'Firebase', emoji: '🔥', level: 'Intermediate' },
     ],
   },
   {
@@ -129,7 +129,6 @@ const skillCategories = [
 const levelColor = {
   'Advanced': 'text-cyan-400 bg-cyan-400/10 border-cyan-400/25',
   'Intermediate': 'text-violet-400 bg-violet-400/10 border-violet-400/25',
-  'Beginner': 'text-amber-400 bg-amber-400/10 border-amber-400/25',
 }
 
 const accentBorder = {
@@ -199,7 +198,8 @@ function CategorySection({ category, index }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
     >
       {/* Category header */}
@@ -228,7 +228,7 @@ function Skills() {
   const totalSkills = skillCategories.reduce((acc, cat) => acc + cat.skills.length, 0)
 
   return (
-    <section className="min-h-screen bg-slate-950 pt-28 pb-24">
+    <section className="bg-slate-950 pt-20 pb-24">
 
       {/* BG blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -241,7 +241,8 @@ function Skills() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
@@ -265,7 +266,6 @@ function Skills() {
             {[
               { value: skillCategories.length, label: 'Categories' },
               { value: `${totalSkills}+`, label: 'Technologies' },
-              { value: '2+', label: 'Years Learning' },
             ].map(({ value, label }) => (
               <div key={label} className="text-center">
                 <div className="text-2xl font-bold text-cyan-400">{value}</div>
@@ -278,7 +278,8 @@ function Skills() {
         {/* Level legend */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.3 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >

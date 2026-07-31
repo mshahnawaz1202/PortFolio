@@ -1,17 +1,5 @@
-import { Outlet } from 'react-router-dom'
-import Navbar from './Navbar'
-import Footer from './Footer'
-
-function Layout() {
-  return (
-    <div className="min-h-screen flex flex-col bg-slate-950">
-      <Navbar />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
-  )
+// Layout is no longer used — the single-page structure is managed directly in App.jsx
+// This file is kept as a no-op for backward compatibility
+export default function Layout() {
+  return null
 }
-
-export default Layout

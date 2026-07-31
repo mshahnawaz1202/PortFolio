@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
 import { FiArrowRight } from 'react-icons/fi'
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import { socialLinks } from '../data/social_links'
@@ -13,9 +12,12 @@ const fadeUp = (delay = 0) => ({
 
 const techStack = ['MERN Stack', 'Django', 'Java', 'Python', 'C++']
 
-function Hero() {
-  const navigate = useNavigate()
+function scrollToSection(id) {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
+function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
 
@@ -98,14 +100,14 @@ function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-2"
           >
             <button
-              onClick={() => navigate('/projects')}
+              onClick={() => scrollToSection('projects')}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/25 hover:-translate-y-0.5"
             >
               View Projects
               <FiArrowRight size={16} />
             </button>
             <button
-              onClick={() => navigate('/contact')}
+              onClick={() => scrollToSection('contact')}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-700 hover:border-cyan-500/50 text-slate-300 hover:text-white font-semibold text-sm transition-all duration-300 hover:bg-slate-800/60 hover:-translate-y-0.5"
             >
               Contact Me
@@ -162,16 +164,6 @@ function Hero() {
                 className="w-full h-full object-cover object-top"
               />
             </div>
-
-            {/* Floating badge — Projects */}
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-              className="absolute -top-4 -right-4 bg-slate-800 border border-slate-700 rounded-xl px-4 py-2 shadow-xl"
-            >
-              <div className="text-purple-400 font-bold text-lg leading-none">20+</div>
-              <div className="text-slate-400 text-xs">Projects</div>
-            </motion.div>
           </div>
         </motion.div>
 

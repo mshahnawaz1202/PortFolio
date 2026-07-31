@@ -141,7 +141,7 @@ function Projects() {
     : projects.filter(p => p.category === activeFilter)
 
   return (
-    <section className="min-h-screen bg-slate-950 pt-28 pb-24">
+    <section className="bg-slate-950 pt-20 pb-24">
 
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -154,7 +154,8 @@ function Projects() {
         {/* Page Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
@@ -182,7 +183,8 @@ function Projects() {
         {/* Filter Bar */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-2 mb-10"
         >
