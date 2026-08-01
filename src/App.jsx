@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import About from './pages/About'
 import Skills from './pages/Skills'
 import Projects from './pages/Projects'
+import Certificates from './pages/Certificates'
 import Contact from './pages/Contact'
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
         </section>
         <section id="projects" style={{ scrollMarginTop: '64px' }}>
           <Projects />
+        </section>
+        <section id="certificates" style={{ scrollMarginTop: '64px' }}>
+          <Certificates />
         </section>
         <section id="contact" style={{ scrollMarginTop: '64px' }}>
           <Contact />
