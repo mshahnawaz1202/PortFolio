@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { FiArrowRight } from 'react-icons/fi'
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import { socialLinks } from '../data/social_links'
 import avatarImg from '../assets/avatar.png'
 
@@ -138,6 +139,15 @@ function Hero() {
               aria-label="LinkedIn"
             >
               <FiLinkedin size={20} />
+            </a>
+            <a
+              href={socialLinks.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-500 hover:text-green-400 transition-colors duration-200"
+              aria-label="WhatsApp"
+            >
+              <FaWhatsapp size={20} />
             </a>
           </motion.div>
 

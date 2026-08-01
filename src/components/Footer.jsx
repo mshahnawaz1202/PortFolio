@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiArrowUp } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import { socialLinks } from '../data/social_links'
 
 const navLinks = [
   { to: 'home', label: 'Home' },
   { to: 'about', label: 'About' },
   { to: 'projects', label: 'Projects' },
+  { to: 'certificates', label: 'Certificates' },
   { to: 'contact', label: 'Contact' },
 ]
 
@@ -13,6 +15,7 @@ const socials = [
   { icon: FiGithub,    href: socialLinks.github,    label: 'GitHub' },
   { icon: FiLinkedin,  href: socialLinks.linkedin,   label: 'LinkedIn' },
   { icon: FiInstagram, href: socialLinks.instagram,  label: 'Instagram' },
+  { icon: FaWhatsapp,  href: socialLinks.whatsapp,   label: 'WhatsApp' },
   { icon: FiMail,      href: socialLinks.email,      label: 'Email' },
 ]
 
@@ -41,7 +44,7 @@ function Footer() {
               onClick={() => scrollToSection('home')}
               className="text-2xl font-bold text-white w-fit hover:text-cyan-400 transition-colors duration-200"
             >
-              MSN<span className="text-cyan-400">.</span>
+              Muhammad Shah Nawaz<span className="text-cyan-400">.</span>
             </button>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Full Stack Developer crafting clean, performant, and beautiful web experiences.
@@ -108,6 +111,17 @@ function Footer() {
                   <FiGithub size={14} />
                 </span>
                 github.com/mshahnawaz1202
+              </a>
+              <a
+                href={socialLinks.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-slate-400 hover:text-cyan-400 text-sm transition-colors duration-200 group"
+              >
+                <span className="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-800 border border-slate-700 group-hover:border-cyan-500 transition-all duration-200">
+                  <FaWhatsapp size={14} />
+                </span>
+                {socialLinks.phone}
               </a>
               <a
                 href={socialLinks.linkedin}
