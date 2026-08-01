@@ -7,6 +7,7 @@ const links = [
   { to: 'about', label: 'About' },
   { to: 'skills', label: 'Skills' },
   { to: 'projects', label: 'Projects' },
+  { to: 'certificates', label: 'Certificates' },
   { to: 'contact', label: 'Contact' },
 ]
 
@@ -62,7 +63,7 @@ function Navbar() {
           onClick={() => scrollToSection('home')}
           className="text-xl font-bold text-white tracking-tight hover:text-cyan-400 transition-colors duration-200"
         >
-          Shah Nawaz<span className="text-cyan-400">.</span>
+          Muhammad Shah Nawaz <span className="text-cyan-400">.</span>
         </button>
 
         {/* Desktop Links */}
