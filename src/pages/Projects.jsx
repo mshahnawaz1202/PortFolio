@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiGithub } from 'react-icons/fi'
+import { FiGithub, FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import { projects } from '../data/projects'
+
+const TOP_PROJECTS_COUNT = 6
 
 const categories = [
   "All",
@@ -135,10 +137,18 @@ function ProjectCard({ project, index }) {
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [showAll, setShowAll] = useState(false)
+
+  useEffect(() => {
+    setShowAll(false)
+  }, [activeFilter])
 
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter(p => p.category === activeFilter)
+
+  const displayed = showAll ? filtered : filtered.slice(0, TOP_PROJECTS_COUNT)
+  const hasMore = filtered.length > TOP_PROJECTS_COUNT
 
   return (
     <section className="bg-slate-950 pt-20 pb-24">
@@ -213,11 +223,40 @@ function Projects() {
         {/* Grid */}
         <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project, index) => (
+            {displayed.map((project, index) => (
               <ProjectCard key={`${project.id}-${project.title}`} project={project} index={index} />
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {hasMore && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex justify-center mt-10"
+          >
+            <button
+              onClick={() => setShowAll(prev => !prev)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl
+                         border border-slate-700 text-slate-300 text-sm font-medium
+                         hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/5
+                         transition-all duration-200"
+            >
+              {showAll ? (
+                <>
+                  <FiChevronUp size={16} />
+                  Show Top {TOP_PROJECTS_COUNT}
+                </>
+              ) : (
+                <>
+                  <FiChevronDown size={16} />
+                  Show All Projects ({filtered.length})
+                </>
+              )}
+            </button>
+          </motion.div>
+        )}
 
         {filtered.length === 0 && (
           <motion.p

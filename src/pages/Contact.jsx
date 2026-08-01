@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiMail, FiGithub, FiLinkedin, FiInstagram, FiSend, FiMapPin, FiCheckCircle, FiCopy, FiLoader } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import { socialLinks } from '../data/social_links'
 
 const contactInfo = [
@@ -11,6 +12,14 @@ const contactInfo = [
     href: socialLinks.email,
     action: 'mailto',
     accent: 'cyan',
+  },
+  {
+    icon: FaWhatsapp,
+    title: 'WhatsApp',
+    value: socialLinks.phone,
+    href: socialLinks.whatsapp,
+    action: 'link',
+    accent: 'green',
   },
   {
     icon: FiLinkedin,
@@ -40,6 +49,7 @@ const contactInfo = [
 
 const accentStyles = {
   cyan: { text: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/30', glow: 'hover:shadow-cyan-500/10' },
+  green: { text: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/30', glow: 'hover:shadow-green-500/10' },
   violet: { text: 'text-violet-400', bg: 'bg-violet-500/10', border: 'border-violet-500/30', glow: 'hover:shadow-violet-500/10' },
   emerald: { text: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', glow: 'hover:shadow-emerald-500/10' },
   rose: { text: 'text-rose-400', bg: 'bg-rose-500/10', border: 'border-rose-500/30', glow: 'hover:shadow-rose-500/10' },
@@ -172,7 +182,10 @@ function Contact() {
                     </div>
 
                     <button
-                      onClick={() => copyToClipboard(item.title === 'Email' ? item.value : item.href, idx)}
+                      onClick={() => copyToClipboard(
+                        item.title === 'Email' || item.title === 'WhatsApp' ? item.value : item.href,
+                        idx
+                      )}
                       className="p-2 rounded-lg text-slate-500 hover:text-slate-200 hover:bg-slate-800 transition-all duration-200 flex-shrink-0"
                       title="Copy to clipboard"
                     >
