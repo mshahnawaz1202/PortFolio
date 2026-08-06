@@ -14,6 +14,7 @@ import dalgonaImg from "../assets/dalgona.png";
 import nyc from "../assets/nyc.jfif";
 import smartCity from "../assets/smartCity.jfif";
 import cse from "../assets/cse.jfif";
+import api_banking from '../assets/api_banking.jfif'
 
 export const projects = [
     {
@@ -37,7 +38,16 @@ export const projects = [
         image: product,
     },
     {
-        id: 2,
+        id:2,
+        title: "Banking System API",
+        description: "A secure, production-ready REST API for a full-featured Banking System, built with Node.js, Express 5, MongoDB + Mongoose, JWT authentication, bcrypt password hashing, a token blacklist for logout security, a ledger system for audit trails, idempotency keys to prevent duplicate transactions, and Nodemailer email notifications.",
+        github : "https://github.com/mshahnawaz1202/Banking-System",
+        techUsed: ["Node JS","Express JS","Node Mailer","JWT","Mongoose","cookie-parser","bcryptjs"],
+        category: "Web",
+        image:api_banking,
+    },
+    {
+        id: 3,
         title: "Spotify-Clone Backend",
         description:
             "Spotify Clone Backend is a robust, scalable REST API that powers a music streaming platform similar to Spotify. Built as a full-stack learning project, it demonstrates real-world backend engineering patterns including JWT-based cookie authentication, role-based access control, cloud media storage, and a clean MVC architecture with Express and MongoDB.",
@@ -54,7 +64,7 @@ export const projects = [
         image: spotify_clone,
     },
     {
-        id: 3,
+        id: 4,
         title: "Smart City Diagnostic Engine",
         description:
             "The Smart City Diagnostic Engine is a modular environmental analytics system designed to detect pollution anomalies, model extreme hazard events, and analyze high-dimensional urban air quality data.This project simulates a real-world Smart City initiative where multi-gigabyte air quality data from 100 global sensor nodes (hourly recordings for 2025) is processed to extract actionable environmental insights.The system is built as a fully reproducible Python pipeline and deployed via an interactive Streamlit dashboard.",
@@ -71,7 +81,7 @@ export const projects = [
         image: smartCity,
     },
     {
-        id: 4,
+        id: 5,
         title: "Customer Segmentation & Recommendation Engine",
         description:
             "Developed an e-commerce customer intelligence system using transactional data to segment customers via RFM analysis and K-Means clustering, generate customer personas, and provide behavior-based product recommendations through an interactive Streamlit dashboard.",
@@ -88,7 +98,7 @@ export const projects = [
         image: cse,
     },
     {
-        id: 5,
+        id: 6,
         title: "NYC Congestion Pricing Audit 2025",
         description:
             "A comprehensive data analysis pipeline to assess the impact of the Manhattan Congestion Relief Zone Toll (implemented January 5, 2025) on NYC's taxi industry.",
@@ -98,7 +108,7 @@ export const projects = [
         image: nyc,
     },
     {
-        id: 6,
+        id: 7,
         title: "StayFinder",
         description:
             "A full-featured Airbnb-inspired property booking Android app built with Kotlin and Jetpack Compose. Features Firebase authentication, real-time listings, Room/SQLite offline support, and rich UI components.",
@@ -109,7 +119,7 @@ export const projects = [
         image: stayfinderImg,
     },
     {
-        id: 7,
+        id: 8,
         title: "BOS Optics",
         description:
             "A full-stack Django e-commerce platform for an optical store. Customers can browse premium eyewear, search products, manage carts, place orders, book eye-care appointments, and read blog posts.",
@@ -119,7 +129,7 @@ export const projects = [
         image: logoImg,
     },
     {
-        id: 8,
+        id: 9,
         title: "TestOps & Automation Framework",
         description:
             "A comprehensive BDD Test Automation Framework for Web UI testing. Built with Java, Selenium WebDriver, Cucumber, and Allure Reports enabling clean, maintainable, and scalable automated test suites.",
@@ -129,7 +139,7 @@ export const projects = [
         image: testopsImg,
     },
     {
-        id: 9,
+        id: 10,
         title: "Arabic Poetry Management",
         description:
             "A sophisticated multi-layered Desktop Application for managing, analyzing, and exploring Arabic poetry. Built with JavaFX and 3-Tier Architecture.",
@@ -139,7 +149,7 @@ export const projects = [
         image: poetryImg,
     },
     {
-        id: 10,
+        id: 11,
         title: "Mini Blog",
         description:
             "A full-stack implemented Mini Blog website where users can create, update, and delete posts with a modern frontend and backend architecture.",
@@ -157,7 +167,7 @@ export const projects = [
         image: mini_blog,
     },
     {
-        id: 11,
+        id: 12,
         title: "Mini Power BI",
         description:
             "A Power BI-style Data Analytics Dashboard built with Streamlit. Offers workflow to upload, clean, visualize, train ML models, predict, and chat with datasets.",
@@ -174,7 +184,7 @@ export const projects = [
         image: powerBiImg,
     },
     {
-        id: 12,
+        id: 13,
         title: "Mini Operating System",
         description:
             "A console-based mini OS simulator in C++ covering process management, memory management, scheduling algorithms, and utilities.",
@@ -184,7 +194,7 @@ export const projects = [
         image: osImg,
     },
     {
-        id: 13,
+        id: 14,
         title: "Mini Instagram",
         description:
             "A C++ terminal simulation of Instagram with user registration, login, messaging, posts management, and friend requests.",
@@ -194,7 +204,7 @@ export const projects = [
         image: instagramImg,
     },
     {
-        id: 14,
+        id: 15,
         title: "Contact Book Application",
         description:
             "A console-based contact management system built in C++ using OOP principles. Supports CRUD operations, file persistence, and searching.",
@@ -204,7 +214,7 @@ export const projects = [
         image: contactBookImg,
     },
     {
-        id: 15,
+        id: 16,
         title: "Tic Tac Toe",
         description:
             "A console-based Tic-Tac-Toe game developed in C++. Includes score tracking, match history storage, leaderboard functionality, and file handling.",
@@ -214,7 +224,7 @@ export const projects = [
         image: tictactoeImg,
     },
     {
-        id: 16,
+        id: 17,
         title: "Dalgona Challenge",
         description:
             "A terminal-based Dalgona shape guessing game implemented in Bash with single-player, multiplayer, and computer modes.",
@@ -223,4 +233,7 @@ export const projects = [
         category: "Other",
         image: dalgonaImg,
     },
+
+    
+
 ];
