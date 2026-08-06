@@ -177,7 +177,7 @@ function Projects() {
           </span>
 
           <h1 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
-            Featured <span className="text-violet-400">Projects</span>
+            Selected <span className="text-violet-400">Projects</span>
           </h1>
 
           <p className="text-slate-400 max-w-xl mx-auto text-base leading-relaxed">
