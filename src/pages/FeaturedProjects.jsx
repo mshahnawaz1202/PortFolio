@@ -24,7 +24,7 @@ function FeaturedProjects() {
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-3">
                 Portfolio Showcase
               </span>
-              <h2 className="text-3xl font-bold text-white">Featured <span className="text-cyan-400">Projects</span></h2>
+              <h2 className="text-3xl font-bold text-white">Selected<span className="text-cyan-400">Projects</span></h2>
             </div>
             <button
               onClick={() => scrollToSection('projects')}
